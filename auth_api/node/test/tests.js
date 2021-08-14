@@ -3,7 +3,6 @@ import { loginFunction } from '../services/login'
 import { protectFunction } from '../services/protected'
 
 const expect = chai.expect;
-
 describe('loginFunction()', function () {
   it('Test login', function () {
 

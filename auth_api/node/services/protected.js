@@ -1,3 +1,3 @@
 export const protectFunction = (authorization) => {
-  return 'test';
+  return 'You are under protected data';
 }

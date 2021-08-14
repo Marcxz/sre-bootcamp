@@ -1,4 +1,6 @@
 {
   "port" : 8000,
-  "environment": "development"
+  "environment": "development",
+  "JWT_SECRET": "my2w7wjd7yXF64FIADfJxNs1oupTGAuW",
+  "COOKIE_EXP": 43200000
 }
