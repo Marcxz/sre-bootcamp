@@ -4,7 +4,7 @@
   "description": "API for SRE Bootcamp",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --require babel-core/register",
+    "test": "mocha --require babel-core/register --require babel-polyfill",
     "start": "NODE_ENV=production babel-node index.js",
     "dev": "nodemon --exec babel-node ./index.js"
   },

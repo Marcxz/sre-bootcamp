@@ -46,7 +46,17 @@ export const loginFunction = async (username, password) => {
        }
     }
   })
-  return (isValid) ? await jwtService.getJwt(u) : null;
+  
+  let res = {
+    valid: isValid,
+    jwt: undefined,
+  }
+
+  if(isValid) {
+    res.valid = isValid;
+    res.jwt = await jwtService.getJwt(u);
+  }
+  return res;
 }
 
 export const hashPasswordUsers = () => {

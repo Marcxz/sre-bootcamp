@@ -5,9 +5,9 @@ export const login = async (req, res, next) => {
     let username = req.body.username;
     let password = req.body.password;
     const data = await loginFunction(username, password);
-    if (data) {
+    if (data.valid) {
       res.status(StatusCodes.OK).send({
-        data: data
+        data: data.jwt
       });
     } else {
       res.status(StatusCodes.FORBIDDEN).send({
