@@ -5,7 +5,7 @@ const crypto = require('crypto');
 let config = Config;
 
 const JWT_SECRET = config.JWT_SECRET;
-const OPTIONS = {expiresIn: config.COOKIE_EXP.toString()};
+const OPTIONS = {expiresIn: (config.COOKIE_EXP).toString(), algorithm: 'HS256'};
 
 export class JwtService {
 
@@ -47,15 +47,9 @@ export class JwtService {
      
     
     sha512 (password, salt) {
-        const hash = crypto.createHmac('sha512', salt);
-        hash.update(password);
-        const value = hash.digest('hex');
-        return {
-          salt: salt,
-          passwordHash: value
-        };
+        return crypto.createHash('sha512').update(password+salt).digest('hex');       
     }
-      
+
     passwordHashAndSalt(password, salt) {
         const passwordData = this.sha512(password, salt);     
         return passwordData;

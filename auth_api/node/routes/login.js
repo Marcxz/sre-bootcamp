@@ -1,5 +1,6 @@
 import { loginFunction,  } from '../services/login';
 import { StatusCodes } from 'http-status-codes';
+
 export const login = async (req, res, next) => {
   try {
     let username = req.body.username;
